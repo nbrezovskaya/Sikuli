@@ -144,6 +144,13 @@
 			<artifactId>xml-apis</artifactId>
 			<version>1.4.01</version>
 		</dependency>
+		<dependency>
+			<groupId>sikuli</groupId>
+			<artifactId>sikuli</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/lib/sikulix.jar</systemPath>
+		</dependency>
 	</dependencies>
 
 	<build>
