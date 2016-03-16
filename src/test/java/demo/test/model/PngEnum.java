@@ -1,7 +1,8 @@
 package demo.test.model;
 
-
 import org.sikuli.script.Pattern;
+
+import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -25,20 +26,25 @@ public enum PngEnum {
 
     static {
         PATTERN_MAPPING = new HashMap<>();
-        PATTERN_MAPPING.put(ptrDialogWindow, new Pattern("src/test/resources/img/dialogWindow.png"));
-        PATTERN_MAPPING.put(ptrCloseDialogWindow, new Pattern("src/test/resources/img/close.png"));
-        PATTERN_MAPPING.put(ptrFurnishYourRoom, new Pattern("src/test/resources/img/furnishYourRoom.png"));
-        PATTERN_MAPPING.put(ptrDiningRoom, new Pattern("src/test/resources/img/diningRoom.png"));
-        PATTERN_MAPPING.put(ptrElementInWorkspace, new Pattern("src/test/resources/img/elementInWorkspace.png"));
-        PATTERN_MAPPING.put(ptrDragItem, new Pattern("src/test/resources/img/element2.png"));
-        PATTERN_MAPPING.put(ptrDeleteElement, new Pattern("src/test/resources/img/delete.png"));
-        PATTERN_MAPPING.put(ptrWorkspace, new Pattern("src/test/resources/img/workspace.png"));
-        PATTERN_MAPPING.put(ptrWorkspace2, new Pattern("src/test/resources/img/workspace2.png"));
-        PATTERN_MAPPING.put(ptrElement, new Pattern("src/test/resources/img/element.png"));
-        PATTERN_MAPPING.put(ptrListElements, new Pattern("src/test/resources/img/list.png"));
-        PATTERN_MAPPING.put(ptrDiningRoomMenu, new Pattern("src/test/resources/img/diningRoomMenu.png"));
-        PATTERN_MAPPING.put(ptrSceneInformation, new Pattern("src/test/resources/img/sceneInformation.png"));
-        PATTERN_MAPPING.put(ptrInformationDragAndDropItem, new Pattern("src/test/resources/img/informationDragAndDropItem.png"));
+        PATTERN_MAPPING.put(ptrDialogWindow, new Pattern(getPath("img/dialogWindow.png")));
+        PATTERN_MAPPING.put(ptrCloseDialogWindow, new Pattern(getPath("img/close.png")));
+        PATTERN_MAPPING.put(ptrFurnishYourRoom, new Pattern(getPath("img/furnishYourRoom.png")));
+        PATTERN_MAPPING.put(ptrDiningRoom, new Pattern(getPath("img/diningRoom.png")));
+        PATTERN_MAPPING.put(ptrElementInWorkspace, new Pattern(getPath("img/elementInWorkspace.png")));
+        PATTERN_MAPPING.put(ptrDragItem, new Pattern(getPath("img/element2.png")));
+        PATTERN_MAPPING.put(ptrDeleteElement, new Pattern(getPath("img/delete.png")));
+        PATTERN_MAPPING.put(ptrWorkspace, new Pattern(getPath("img/workspace.png")));
+        PATTERN_MAPPING.put(ptrWorkspace2, new Pattern(getPath("img/workspace2.png")));
+        PATTERN_MAPPING.put(ptrElement, new Pattern(getPath("img/element.png")));
+        PATTERN_MAPPING.put(ptrListElements, new Pattern(getPath("img/list.png")));
+        PATTERN_MAPPING.put(ptrDiningRoomMenu, new Pattern(getPath("img/diningRoomMenu.png")));
+        PATTERN_MAPPING.put(ptrSceneInformation, new Pattern(getPath("img/sceneInformation.png")));
+        PATTERN_MAPPING.put(ptrInformationDragAndDropItem, new Pattern(getPath("img/informationDragAndDropItem.png")));
+    }
+
+    private static String getPath(String relativePath) {
+        URL resource = PngEnum.class.getClassLoader().getResource(relativePath);
+        return resource != null ? resource.getPath() : null;
     }
 
     public Pattern getPattern() {
